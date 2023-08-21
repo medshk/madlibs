@@ -3,43 +3,106 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>Welcome to SoftLib ♪</title>
+    <title>~ Write your story ~</title>
     <link href="style.css" rel="stylesheet" type="text/css" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Kurale&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Satisfy&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Exo:wght@300&display=swap" rel="stylesheet">
   </head>
-  <body class="background">
-
-    <audio id="audio-player" src="sounds/116709.mp3" loop ></audio>
-
- <div id="wrapper">
-  <div class="container">
+  <body>
     
-    <h1 class="text">Create your <span id="second">Own</span> story!</h1>
-    <button id="btnClick" class="btn" onclick="redirectToMain()">Let's start </button>
+    <div class="containerAudio">
+      <audio id="audio-player" src="sounds/116709.mp3" loop ></audio>
+      <input type="range"  min="0" max="100" value="10" id="volume" class="control-button">
+      <div class="btn-audio">
+      
+        <input type="button"  id="pause"  class="control-button" value="Pause">
+        <input type="button"  id="play"   class="control-button" value="Play">
+        <input type="button"  id="reset"  class="control-button reset" value="Reset">
+      </div>
+      
+    </div>
     
-  </div>
+     <h1 id="welcome"> Your adventure is just starting...</h1>
+    <div id= "wrapper" class="wreapper">
+     
+      <div class="box-container">
+        <div class="image-wrapper">
+          <img src="img/img1.jpg" alt="Adventure Image 1" class="image-container">
+        </div>
+        
+        <div class="column-container">
+          <div class="madLibsEdit style" id="editBox1"></div>
+          <div class="madLibsPreview style" id="previewBox1"></div>
+        </div>
+     
+      </div>
 
-  <footer>
-    <small>Brought to you by team <i>WonderTellers</i></small>
-  </footer>
-</div>
+      <div class="box-container">
+        <div class="image-wrapper">
+            <img src="img/img2.jpg" alt="Adventure Image 1" class="image-container img2">
+        </div>
+      
+        <div class="column-container">
+          <div class="madLibsEdit style" id="editBox2"></div>
+          <div class="madLibsPreview style" id="previewBox2"></div>
+        </div>
 
-  <script>
-      const PlayerBtn = document.querySelector('#btnClick');
-    const audioPlayer = document.querySelector('#audio-player');
+      </div>
 
-    PlayerBtn.addEventListener('click', () => {
-      audioPlayer.play(); 
-      window.location.href = "index.html";
+      <div class="box-container">
+        <img src="img/img4.jpg" alt="Adventure Image 1" class="image-container">
+        <div class="column-container">
+          <div class="madLibsEdit style" id="editBox3"></div>
+          <div class="madLibsPreview style" id="previewBox3"></div>
+        </div>
+     
 
+      </div>
+      <div class="box-container">
+        <img src="img/img3.jpg" alt="Adventure Image 1" class="image-container">
+
+        <div class="column-container">
+
+        <div class="madLibsEdit style" id="editBox3"></div>
+        <div class="madLibsPreview style" id="previewBox3"></div>
+        </div>
+
+      </div>
+    </div>
+
+     
+      
+    </div>
+    <h1 id="end"> The End.</h1>
+    <script>
+      const audioPlayer = document.querySelector('#audio-player');
+      audioPlayer.play();
+      const pauseAudio= document.querySelector('#pause');
+      const playAudio= document.querySelector('#play');
+      const volume = document.querySelector('#volume');
+
+        
+    pauseAudio.addEventListener('click', () => {
+      audioPlayer.pause();
+      audioPlayer.currentTime = 0;     
     });
 
+    playAudio.addEventListener('click',()=>{
+      audioPlayer.play();
+    });
+
+    // Set the volume slider
+    volume.addEventListener('change', (e) =>{
+      audioPlayer.volume = e.currentTarget.value / 100; 
+    })
 
 
-</script>
+
+
+    </script>
+    <footer>
+      <small>Brought to you by team <i>WonderTellers</i></small>
+    </footer>
+    <script src="do-not-touch.js"></script>
+    <script src="madlibs.js"></script>
+
   </body>
 </html>
