@@ -102,15 +102,15 @@ function madLibsDom(arrayOfWords, i) {
     "put a noun",
     "put a noun",
     "put an adjective",
-    "put a verb",
+    "put a noun",
     "put a verb",
     "put a noun",
     "put a noun",
-    "put a verb",
-    "give an adjective",
-    "village name",
     "put a noun",
     "give an adjective",
+    "put noun",
+    "put a noun",
+    "put a noun",
   ];
 
   // the count is used, to generate ids for inputs and their preview
